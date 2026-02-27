@@ -1,0 +1,64 @@
+{
+  "name": "@se-oss/slugify",
+  "version": "0.0.0",
+  "description": "Blazing fast, strictly typed slugification with Unicode transliteration.",
+  "keywords": [
+    "slugify",
+    "slug",
+    "typescript",
+    "unicode",
+    "transliteration",
+    "seo",
+    "url-safe",
+    "high-performance"
+  ],
+  "homepage": "https://github.com/shahradelahi/ts-slugify",
+  "repository": "github:shahradelahi/ts-slugify",
+  "license": "MIT",
+  "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**",
+    "!**/*.d.cts"
+  ],
+  "scripts": {
+    "bench": "vitest bench --run",
+    "build": "tsup",
+    "clean": "git clean -dfx \"**/node_modules/**\" dist .tsbuildinfo",
+    "dev": "tsup --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "pnpm typecheck && eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepublishOnly": "pnpm build && pnpm lint && pnpm format:check && pnpm test",
+    "test": "vitest --run",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@shahrad/prettier-config",
+  "dependencies": {
+    "@se-oss/regexp-escape": "^1.0.0",
+    "@se-oss/transliterate": "^1.0.0"
+  },
+  "devDependencies": {
+    "@shahrad/eslint-config": "^1.1.0",
+    "@shahrad/prettier-config": "^1.2.2",
+    "@shahrad/tsconfig": "^1.2.0",
+    "@types/node": "^25.3.1",
+    "eslint": "^10.0.2",
+    "globals": "^17.3.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "packageManager": "pnpm@10.30.2+sha512.36cdc707e7b7940a988c9c1ecf88d084f8514b5c3f085f53a2e244c2921d3b2545bc20dd4ebe1fc245feec463bb298aecea7a63ed1f7680b877dc6379d8d0cb4"
+}
